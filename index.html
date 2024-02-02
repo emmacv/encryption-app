@@ -7,7 +7,7 @@
   <title>Message encryption app</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="public/favicon.ico">
-  <script src="app.js" defer></script>t
+  <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -16,13 +16,12 @@
     <h1>Message encryption app</h1>
   </header>
   <section id="message">
-    <form>
+    <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
       <label for="message">Message:</label>
-      <textarea name="message" id="message">
+      <textarea name="message" id="message" oninput="console.log(event.target.value)"></textarea>
 
-        </textarea>
+      <input type="checkbox" name="switch" checked>
       <button>encrypt</button>
-      <button>decrypt</button>
     </form>
   </section>
   <section id="output">
