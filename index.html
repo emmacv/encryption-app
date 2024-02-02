@@ -7,6 +7,7 @@
   <title>Message encryption app</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="public/favicon.ico">
+  <script src="app.js" defer></script>t
 </head>
 
 <body>
@@ -14,12 +15,19 @@
     <img src="public/logo.png" alt="Logo">
     <h1>Message encryption app</h1>
   </header>
-  <form action="encrypt.php" method="post">
-    <label for="message">Message:</label>
-    <input type="text" name="message" id="message">
-    <input type="submit" value="Encrypt">
-  </form>
-  <h2>Encrypted message:</h2>
+  <section id="message">
+    <form>
+      <label for="message">Message:</label>
+      <textarea name="message" id="message">
+
+        </textarea>
+      <button>encrypt</button>
+      <button>decrypt</button>
+    </form>
+  </section>
+  <section id="output">
+    <div id="output-text"></div>
+  </section>
   <p>
   </p>
 </body>
