@@ -1,10 +1,18 @@
 const KEY = {
+  a: "ai",
   e: "enter",
   i: "imes",
-  a: "ai",
   o: "ober",
   u: "ufat",
 };
+
+// Special thanks  to @JorgeLReyes for this regex
+const REGEX_VALIDATION = /^[a-z\s.0-9]+$/;
+const { "action-button": actionButton, message: messageArea } =
+  document.forms["message-form"].elements;
+const outputMessage = document.getElementById("output-text");
+let lexicalError = false;
+
 /**
   - Debe funcionar solo con letras minúsculas
   - No deben ser utilizados letras con acentos ni caracteres especiales
@@ -17,16 +25,25 @@ const encryptOrDecryptMessage = (event) => {
   const { switch: switchButton, message } = form.elements;
   const { value: input } = message;
 
-  if (switchButton.checked) encrypt(input);
-  else decrypt(input);
+  (switchButton.checked ? encrypt : decrypt)(input);
 };
 
 const encrypt = (message) => {
-  console.log(message);
+  const result = message.split('').map(letter => KEY[letter] ?? letter).join('');
+
+  outputMessage.value = result;
 };
 
 const decrypt = () => {};
 
 const verifyMessage = (message) => {
-  console.log('message')
-}
+  if (!REGEX_VALIDATION.test(message)) {
+    actionButton.disabled = true;
+    messageArea.classList.add("error");
+
+    throw Error("Message not valid!");
+  }
+
+  actionButton.disabled = false;
+  messageArea.classList.remove("error");
+};

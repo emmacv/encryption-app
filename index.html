@@ -18,14 +18,14 @@
   <section id="message">
     <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
       <label for="message">Message:</label>
-      <textarea name="message" id="message" oninput="console.log(event.target.value)"></textarea>
+      <textarea name="message" id="message" oninput="verifyMessage(event.target.value)"></textarea>
 
       <input type="checkbox" name="switch" checked>
-      <button>encrypt</button>
+      <button id="action-button">crypt</button>
     </form>
   </section>
   <section id="output">
-    <div id="output-text"></div>
+    <textarea id="output-text"></textarea>
   </section>
   <p>
   </p>
