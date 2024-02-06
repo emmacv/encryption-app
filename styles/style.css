@@ -10,11 +10,11 @@ header {
   box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.1);
 }
 
-form :not(input[type="checkbox"]:checked)+button::before {
+form :not(input[type="checkbox"]:checked)+#action-button::before {
   content: "De";
 }
 
-form input[type="checkbox"]:checked+button::before {
+form input[type="checkbox"]:checked+#action-button::before {
   content: "En";
 }
 
@@ -28,4 +28,8 @@ textarea {
 
 .error {
   border: solid #ca303070 2px;
+}
+
+#output-text:read-only {
+  color: #0000007c;
 }

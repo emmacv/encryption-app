@@ -1,12 +1,12 @@
 const KEY = {
-  a: "ai",
   e: "enter",
   i: "imes",
+  a: "ai",
   o: "ober",
   u: "ufat",
 };
 
-// Special thanks  to @JorgeLReyes for this regex
+// Special thanks to @JorgeLReyes for this regex
 const REGEX_VALIDATION = /^[a-z\s.0-9]+$/;
 const { "action-button": actionButton, message: messageArea } =
   document.forms["message-form"].elements;
@@ -29,12 +29,22 @@ const encryptOrDecryptMessage = (event) => {
 };
 
 const encrypt = (message) => {
-  const result = message.split('').map(letter => KEY[letter] ?? letter).join('');
+  const result = Object.entries(KEY).reduce(
+    (curr, [key, value]) => curr.replaceAll(key, value),
+    message
+  );
 
   outputMessage.value = result;
 };
 
-const decrypt = () => {};
+const decrypt = (message) => {
+  const result = Object.entries(KEY).reduce(
+    (curr, [key, value]) => curr.replaceAll(new RegExp(`${value}`, 'g'), key),
+    message
+  );
+
+  outputMessage.value = result;
+};
 
 const verifyMessage = (message) => {
   if (!REGEX_VALIDATION.test(message)) {
