@@ -57,3 +57,7 @@ const verifyMessage = (message) => {
   actionButton.disabled = false;
   messageArea.classList.remove("error");
 };
+
+const copyToClipboard = () => {
+  navigator.clipboard.writeText(outputMessage.value);
+}
