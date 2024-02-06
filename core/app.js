@@ -61,3 +61,7 @@ const verifyMessage = (message) => {
 const copyToClipboard = () => {
   navigator.clipboard.writeText(outputMessage.value);
 }
+
+const moveOutputToMsgArea = () => {
+  messageArea.value = outputMessage.value;
+}

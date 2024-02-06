@@ -33,3 +33,7 @@ textarea {
 #output-text:read-only {
   color: #0000007c;
 }
+
+#switch-output {
+  cursor: pointer;
+}
