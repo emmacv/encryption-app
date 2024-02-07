@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Message encryption app</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="core/styles/styles.css">
   <link rel="icon" href="public/favicon.ico">
-  <script src="core/app.js" defer></script>
+  <script src="core/scripts/app.js" defer></script>
 </head>
 
 <body>
@@ -15,20 +15,25 @@
     <img src="public/logo.png" alt="Logo">
     <h1>Message encryption app</h1>
   </header>
-  <section id="message">
-    <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
-      <label for="message">Message:</label>
-      <textarea name="message" id="message" oninput="verifyMessage(event.target.value)"></textarea>
-
-      <input type="checkbox" name="switch" checked>
-      <button id="action-button">crypt</button>
-      <button type="button" onclick="copyToClipboard();">Copy to clipboard</button>
-      <i id="switch-output" onclick="moveOutputToMsgArea();">move to message area</i>
-    </form>
-  </section>
-  <section id="output">
-    <textarea id="output-text" disabled></textarea>
-  </section>
+  <main class="is-flex is-justify-content-center is-flex-wrap-wrap">
+    <section id="message">
+      <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
+        <textarea name="message" id="message" oninput="verifyMessage(event.target.value)" placeholder="Ingrese el texto aqui"></textarea>
+        <div>
+          <input type="checkbox" name="switch" checked>
+          <button id="action-button">crypt</button>
+          <button type="button" onclick="copyToClipboard();">Copy to clipboard</button>
+        </div>
+        <!-- <i id="switch-output" onclick="moveOutputToMsgArea();">move to message area</i> -->
+      </form>
+    </section>
+    <section id="output" class="is-flex is-flex-direction-column">
+      <img alt="guy-searching" src="assets/Muñeco.svg">
+      <span>Ingresa el texto que desees encriptar o desencriptar.</span>
+      <span>Ningún mensaje fue encontrado</span>
+      <textarea id="output-text" disabled></textarea>
+    </section>
+  </main>
   <p>
   </p>
 </body>

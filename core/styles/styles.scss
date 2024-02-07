@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import "../node_modules/bulma/bulma.sass";
+@import "../../node_modules/bulma/bulma.sass";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 
@@ -51,6 +51,11 @@ textarea {
   border: solid $danger 2px;
 }
 
+img[alt="guy-searching"] {
+  max-width: 100%;
+  height: auto;
+}
+
 #output-text:read-only {
   color: #0000007c;
 }
@@ -58,3 +63,5 @@ textarea {
 #switch-output {
   cursor: pointer;
 }
+
+

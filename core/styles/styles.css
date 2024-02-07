@@ -10324,6 +10324,11 @@ textarea {
   border: solid rgba(202, 48, 48, 0.4392156863) 2px;
 }
 
+img[alt=guy-searching] {
+  max-width: 100%;
+  height: auto;
+}
+
 #output-text:read-only {
   color: rgba(0, 0, 0, 0.4862745098);
 }

@@ -5,6 +5,9 @@
   "repository": "https://github.com/emmacv/encryption-app.git",
   "author": "Emmanuel Canto Vazquez <emikogears134@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "cd core/styles && sass --no-source-map --watch styles.scss styles.css"
+  },
   "dependencies": {
     "bulma": "^0.9.4"
   }
