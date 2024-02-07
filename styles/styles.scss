@@ -1,0 +1,60 @@
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
+
+// Overriding values
+$primary: #0A3871;
+$danger: #ca303070;
+$family-primary: 'Inter';
+
+textarea::placeholder {
+  color: $primary;
+  opacity: 1;
+  border: none;
+  font-family: $family-primary;
+}
+
+:root {
+  --elevation-1: 1em;
+  --elevation-2: 1.5em;
+  --border-radius-1: 0.5em;
+}
+
+* {
+  font-family: $family-primary;
+}
+
+header {
+  box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+form {
+  :not(input[type="checkbox"]:checked)+#action-button::before {
+    content: "De";
+  }
+
+  input[type="checkbox"]:checked+#action-button::before {
+    content: "En";
+  }
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  outline: none;
+  border: none;
+  border-radius: var(--border-radius-1);
+}
+
+.error {
+  border: solid $danger 2px;
+}
+
+#output-text:read-only {
+  color: #0000007c;
+}
+
+#switch-output {
+  cursor: pointer;
+}
