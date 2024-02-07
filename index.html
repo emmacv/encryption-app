@@ -16,10 +16,10 @@
     <h1>Message encryption app</h1>
   </header>
   <main class="is-flex is-justify-content-center is-flex-wrap-wrap">
-    <section id="message">
+    <section id="message" class="is-flex-grow-1">
       <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
         <textarea name="message" id="message" oninput="verifyMessage(event.target.value)" placeholder="Ingrese el texto aqui"></textarea>
-        <div>
+        <div class="is-flex is-justify-content-center buttons-container">
           <input type="checkbox" name="switch" checked>
           <button id="action-button">crypt</button>
           <button type="button" onclick="copyToClipboard();">Copy to clipboard</button>

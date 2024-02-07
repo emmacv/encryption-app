@@ -10291,12 +10291,6 @@ textarea::placeholder {
   font-family: "Inter";
 }
 
-:root {
-  --elevation-1: 1em;
-  --elevation-2: 1.5em;
-  --border-radius-1: 0.5em;
-}
-
 * {
   font-family: "Inter";
 }
@@ -10305,11 +10299,45 @@ header {
   box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.1);
 }
 
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
 form :not(input[type=checkbox]:checked) + #action-button::before {
   content: "De";
 }
 form input[type=checkbox]:checked + #action-button::before {
   content: "En";
+}
+form textarea {
+  height: 500px;
+  width: 50%;
+  min-width: 320px;
+  margin: 0 auto;
+}
+form .buttons-container {
+  gap: 0.5em;
+}
+form .buttons-container button {
+  outline: none;
+  border: none;
+  padding: 1em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+form .buttons-container button:first-of-type {
+  background-color: #0A3871;
+  color: hsl(0, 0%, 100%);
+  transition: opacity 0.25s ease-in-out;
+}
+form .buttons-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+form #switch-output {
+  cursor: pointer;
 }
 
 textarea {
@@ -10317,7 +10345,9 @@ textarea {
   resize: none;
   outline: none;
   border: none;
-  border-radius: var(--border-radius-1);
+  border-radius: 1em;
+  padding: 1em;
+  color: #0A3871;
 }
 
 .error {
@@ -10331,8 +10361,4 @@ img[alt=guy-searching] {
 
 #output-text:read-only {
   color: rgba(0, 0, 0, 0.4862745098);
-}
-
-#switch-output {
-  cursor: pointer;
 }

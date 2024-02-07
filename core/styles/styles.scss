@@ -3,22 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 
+$dark-blue: #0A3871;
+
 // Overriding values
-$primary: #0A3871;
+$primary: $dark-blue;
 $danger: #ca303070;
 $family-primary: 'Inter';
+$elevation-1: 1em;
+$elevation-2: 1.5em;
+$border-radius-1: 1em;
 
 textarea::placeholder {
   color: $primary;
   opacity: 1;
   border: none;
   font-family: $family-primary;
-}
-
-:root {
-  --elevation-1: 1em;
-  --elevation-2: 1.5em;
-  --border-radius-1: 0.5em;
 }
 
 * {
@@ -30,12 +29,52 @@ header {
 }
 
 form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5em;
+
   :not(input[type="checkbox"]:checked)+#action-button::before {
     content: "De";
   }
 
   input[type="checkbox"]:checked+#action-button::before {
     content: "En";
+  }
+
+  textarea {
+    height: 500px;
+    width: 50%;
+    min-width: 320px;
+    margin: 0 auto;
+  }
+
+  .buttons-container {
+    gap: 0.5em;
+
+    button {
+      &:first-of-type {
+        background-color: $dark-blue;
+        color: $white;
+        transition: opacity 0.25s ease-in-out;
+      }
+
+      outline: none;
+      border: none;
+      padding: 1em;
+      border-radius: $border-radius-1;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  #switch-output {
+    cursor: pointer;
   }
 }
 
@@ -44,7 +83,9 @@ textarea {
   resize: none;
   outline: none;
   border: none;
-  border-radius: var(--border-radius-1);
+  border-radius: $border-radius-1;
+  padding: 1em;
+  color: $primary;
 }
 
 .error {
@@ -59,9 +100,3 @@ img[alt="guy-searching"] {
 #output-text:read-only {
   color: #0000007c;
 }
-
-#switch-output {
-  cursor: pointer;
-}
-
-

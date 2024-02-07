@@ -25,43 +25,41 @@ const encryptOrDecryptMessage = (event) => {
   const { switch: switchButton, message } = form.elements;
   const { value: input } = message;
 
-  (switchButton.checked ? encrypt : decrypt)(input);
+  encryptDecryptMessage(input, switchButton.checked);
 };
 
-const encrypt = (message) => {
-  const result = Object.entries(KEY).reduce(
-    (curr, [key, value]) => curr.replaceAll(key, value),
-    message
-  );
+const encryptDecryptMessage = (message, shouldEncrypt) => {
+  const result = Object.entries(KEY).reduce((curr, [key, value]) => {
+    if (shouldEncrypt) return curr.replaceAll(key, value);
 
-  outputMessage.value = result;
-};
-
-const decrypt = (message) => {
-  const result = Object.entries(KEY).reduce(
-    (curr, [key, value]) => curr.replaceAll(new RegExp(`${value}`, 'g'), key),
-    message
-  );
+    return curr.replaceAll(new RegExp(`${value}`, "g"), key);
+  }, message);
 
   outputMessage.value = result;
 };
 
 const verifyMessage = (message) => {
-  if (!REGEX_VALIDATION.test(message)) {
-    actionButton.disabled = true;
+  if (REGEX_VALIDATION.test(message)) {
+    actionButton.disabled = false;
+    messageArea.classList.remove("error");
+
+    return;
+  }
+
+  actionButton.disabled = true;
+
+  if (message.length > 0) {
+    console.log(message.length);
     messageArea.classList.add("error");
 
     throw Error("Message not valid!");
   }
-
-  actionButton.disabled = false;
-  messageArea.classList.remove("error");
 };
 
 const copyToClipboard = () => {
   navigator.clipboard.writeText(outputMessage.value);
-}
+};
 
 const moveOutputToMsgArea = () => {
   messageArea.value = outputMessage.value;
-}
+};
