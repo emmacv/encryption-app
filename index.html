@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="core/styles/styles.css">
   <link rel="icon" href="public/favicon.ico">
   <script src="core/scripts/app.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 </head>
 
 <body>
@@ -16,22 +17,25 @@
     <h1>Message encryption app</h1>
   </header>
   <main class="is-flex is-justify-content-center is-flex-wrap-wrap">
-    <section id="message" class="is-flex-grow-1">
+    <section id="message" class="is-flex-grow-1 is-flex-shrink-1">
       <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
         <textarea name="message" id="message" oninput="verifyMessage(event.target.value)" placeholder="Ingrese el texto aqui"></textarea>
         <div class="is-flex is-justify-content-center buttons-container">
           <input type="checkbox" name="switch" checked>
           <button id="action-button">crypt</button>
-          <button type="button" onclick="copyToClipboard();">Copy to clipboard</button>
         </div>
         <!-- <i id="switch-output" onclick="moveOutputToMsgArea();">move to message area</i> -->
       </form>
     </section>
-    <section id="output" class="is-flex is-flex-direction-column">
+    <section id="output" class="section is-flex is-flex-direction-column">
+      <button>
+        <span class="mdi mdi-arrow-left-bold"></span>
+      </button>
       <img alt="guy-searching" src="assets/Muñeco.svg">
       <span>Ingresa el texto que desees encriptar o desencriptar.</span>
       <span>Ningún mensaje fue encontrado</span>
       <textarea id="output-text" disabled></textarea>
+      <button type="button" onclick="copyToClipboard();">Copiar al portapapeles</button>
     </section>
   </main>
   <p>

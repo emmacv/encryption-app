@@ -10299,10 +10299,24 @@ header {
   box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.1);
 }
 
+button {
+  padding: 20px;
+  border: none;
+  outline: none;
+  border-radius: 1.5em;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 form {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 50%;
+  margin: auto;
   padding: 1.5em;
 }
 form :not(input[type=checkbox]:checked) + #action-button::before {
@@ -10313,28 +10327,20 @@ form input[type=checkbox]:checked + #action-button::before {
 }
 form textarea {
   height: 500px;
-  width: 50%;
+  width: 100%;
   min-width: 320px;
   margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.4862745098) 0px 0px 10px 0px;
 }
 form .buttons-container {
   gap: 0.5em;
 }
 form .buttons-container button {
-  outline: none;
-  border: none;
-  padding: 1em;
-  border-radius: 1em;
-  cursor: pointer;
-}
-form .buttons-container button:first-of-type {
+  width: 50%;
   background-color: #0A3871;
   color: hsl(0, 0%, 100%);
   transition: opacity 0.25s ease-in-out;
-}
-form .buttons-container button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  display: inline-block;
 }
 form #switch-output {
   cursor: pointer;
@@ -10345,7 +10351,7 @@ textarea {
   resize: none;
   outline: none;
   border: none;
-  border-radius: 1em;
+  border-radius: 0.5em;
   padding: 1em;
   color: #0A3871;
 }

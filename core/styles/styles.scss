@@ -3,15 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap');
 
+
 $dark-blue: #0A3871;
 
 // Overriding values
 $primary: $dark-blue;
 $danger: #ca303070;
 $family-primary: 'Inter';
-$elevation-1: 1em;
-$elevation-2: 1.5em;
-$border-radius-1: 1em;
+
+$base-radius: 0.5;
+$border-radius: ();
+
+@for $i from 1 through 4 {
+  $border-radius: map-merge($border-radius, ($i: #{$i * $base-radius}em));
+}
 
 textarea::placeholder {
   color: $primary;
@@ -28,11 +33,25 @@ header {
   box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.1);
 }
 
+button {
+  padding: 20px;
+  border: none;
+  outline: none;
+  border-radius: map-get($border-radius, 3);
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
 form {
   position: relative;
   display: flex;
   flex-direction: column;
-
+  width: 50%;
+  margin: auto;
   padding: 1.5em;
 
   :not(input[type="checkbox"]:checked)+#action-button::before {
@@ -45,31 +64,21 @@ form {
 
   textarea {
     height: 500px;
-    width: 50%;
+    width: 100%;
     min-width: 320px;
     margin: 0 auto;
+    box-shadow: #0000007c 0px 0px 10px 0px;
   }
 
   .buttons-container {
     gap: 0.5em;
 
     button {
-      &:first-of-type {
-        background-color: $dark-blue;
-        color: $white;
-        transition: opacity 0.25s ease-in-out;
-      }
-
-      outline: none;
-      border: none;
-      padding: 1em;
-      border-radius: $border-radius-1;
-      cursor: pointer;
-
-      &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
+      width: 50%;
+      background-color: $dark-blue;
+      color: $white;
+      transition: opacity 0.25s ease-in-out;
+      display: inline-block;
     }
   }
 
@@ -78,12 +87,14 @@ form {
   }
 }
 
+.section {}
+
 textarea {
   overflow: auto;
   resize: none;
   outline: none;
   border: none;
-  border-radius: $border-radius-1;
+  border-radius: map-get($border-radius, 1);
   padding: 1em;
   color: $primary;
 }
