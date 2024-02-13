@@ -16,26 +16,29 @@
     <img src="public/logo.png" alt="Logo">
     <h1>Message encryption app</h1>
   </header>
-  <main class="is-flex is-justify-content-center is-flex-wrap-wrap">
-    <section id="message" class="is-flex-grow-1 is-flex-shrink-1">
+  <main class="is-flex is-justify-content-center is-flex-wrap-wrap p-5">
+    <section id="message" class="section is-flex-grow-1 is-flex-shrink-1">
       <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
         <textarea name="message" id="message" oninput="verifyMessage(event.target.value)" placeholder="Ingrese el texto aqui"></textarea>
-        <div class="is-flex is-justify-content-center buttons-container">
+        <div class="is-flex is-justify-content-center buttons-container mt-3">
           <input type="checkbox" name="switch" checked>
           <button id="action-button">crypt</button>
         </div>
-        <!-- <i id="switch-output" onclick="moveOutputToMsgArea();">move to message area</i> -->
       </form>
     </section>
-    <section id="output" class="section is-flex is-flex-direction-column">
-      <button>
+    <section id="output" class="section is-flex-grow-1 is-flex is-flex-direction-column p-3">
+      <button class="section__button-translate">
         <span class="mdi mdi-arrow-left-bold"></span>
       </button>
-      <img alt="guy-searching" src="assets/Muñeco.svg">
-      <span>Ingresa el texto que desees encriptar o desencriptar.</span>
-      <span>Ningún mensaje fue encontrado</span>
-      <textarea id="output-text" disabled></textarea>
-      <button type="button" onclick="copyToClipboard();">Copiar al portapapeles</button>
+      <div id="no-message">
+        <img alt="guy-searching" src="assets/Muñeco.svg">
+        <p>Ningún mensaje fue encontrado</p>
+        <p>Ingresa el texto que desees encriptar o desencriptar.</sp>
+      </div>
+      <div>
+        <textarea id="output-text" disabled></textarea>
+        <button type="button" onclick="copyToClipboard();">Copiar al portapapeles</button>
+      </div>
     </section>
   </main>
   <p>

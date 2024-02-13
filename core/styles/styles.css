@@ -10284,6 +10284,15 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 3rem 1.5rem 6rem;
 }
 
+html {
+  background-color: #f3f5fc;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 textarea::placeholder {
   color: #0A3871;
   opacity: 1;
@@ -10293,57 +10302,31 @@ textarea::placeholder {
 
 * {
   font-family: "Inter";
+  box-sizing: border-box;
 }
 
 header {
-  box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
 }
 
 button {
-  padding: 20px;
-  border: none;
+  padding: 1em 1.5em;
   outline: none;
   border-radius: 1.5em;
   cursor: pointer;
+  border: 1px #0A3871 solid;
+  background-color: transparent;
+  width: 25%;
+  min-width: 220px;
 }
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  margin: auto;
-  padding: 1.5em;
-}
-form :not(input[type=checkbox]:checked) + #action-button::before {
-  content: "De";
-}
-form input[type=checkbox]:checked + #action-button::before {
-  content: "En";
-}
-form textarea {
-  height: 500px;
-  width: 100%;
-  min-width: 320px;
-  margin: 0 auto;
-  box-shadow: rgba(0, 0, 0, 0.4862745098) 0px 0px 10px 0px;
-}
-form .buttons-container {
-  gap: 0.5em;
-}
-form .buttons-container button {
-  width: 50%;
-  background-color: #0A3871;
-  color: hsl(0, 0%, 100%);
-  transition: opacity 0.25s ease-in-out;
-  display: inline-block;
-}
-form #switch-output {
-  cursor: pointer;
+main {
+  gap: 1em;
+  height: calc(100% - 961px + 880px);
 }
 
 textarea {
@@ -10356,15 +10339,77 @@ textarea {
   color: #0A3871;
 }
 
+.section {
+  position: relative;
+  flex-basis: fit-content;
+}
+.section__button-translate {
+  right: 0;
+  top: 50%;
+}
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  min-width: 320px;
+  height: 100%;
+}
+form :not(input[type=checkbox]:checked) + #action-button::before {
+  content: "De";
+}
+form input[type=checkbox]:checked + #action-button::before {
+  content: "En";
+}
+form textarea {
+  min-height: 500px;
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
+  background-color: transparent;
+}
+form .buttons-container {
+  gap: 0.5em;
+}
+form .buttons-container button {
+  width: 25%;
+  background-color: #0A3871;
+  color: hsl(0, 0%, 100%);
+  transition: opacity 0.25s ease-in-out;
+  display: inline-block;
+  border: none;
+}
+form #switch-output {
+  cursor: pointer;
+}
+
+#output {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1em;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
+}
+#output img[alt=guy-searching] {
+  max-width: 100%;
+  height: auto;
+}
+#output-text:read-only {
+  color: rgba(0, 0, 0, 0.4862745098);
+}
+
 .error {
   border: solid rgba(202, 48, 48, 0.4392156863) 2px;
 }
 
-img[alt=guy-searching] {
-  max-width: 100%;
-  height: auto;
+.hidden {
+  display: none;
 }
 
-#output-text:read-only {
-  color: rgba(0, 0, 0, 0.4862745098);
+@media (max-width: 720px) {
+  .section__button-translate {
+    position: relative;
+    top: 0;
+  }
 }
