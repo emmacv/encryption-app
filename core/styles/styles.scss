@@ -85,13 +85,27 @@ textarea {
   padding: unset;
 
   &__button-translate {
-    right: 0;
+    position: absolute;
+    left: -40px;
     top: 50%;
+    cursor: pointer;
+    border: $primary solid 1px;
+    border-radius: map-get($border-radius, 2);
+    padding: 0 1em;
+    background-color: $primary;
+    color: $secondary;
+
+    &::before {
+      content: "<--"
+    }
   }
 
   &-output {
     flex-shrink: 2;
     flex-basis: 250px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
     img[alt="guy-searching"] {
       max-width: 100%;
@@ -129,7 +143,6 @@ form {
     width: 100%;
     min-width: 320px;
     margin: 0 auto;
-    box-shadow: $box-shadow;
     background-color: transparent;
   }
 
@@ -159,11 +172,23 @@ form {
   display: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 655px) {
   .section {
     &__button-translate {
       position: relative;
       top: 0;
+      left: 0;
+      margin: 0 auto;
+
+      &::before {
+        content: "^"
+      }
+    }
+
+    &-output {
+      img[alt="guy-searching"] {
+        display: none;
+      }
     }
   }
 }

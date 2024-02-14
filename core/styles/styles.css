@@ -10346,12 +10346,25 @@ textarea {
   padding: unset;
 }
 .section__button-translate {
-  right: 0;
+  position: absolute;
+  left: -40px;
   top: 50%;
+  cursor: pointer;
+  border: #0A3871 solid 1px;
+  border-radius: 1em;
+  padding: 0 1em;
+  background-color: #0A3871;
+  color: #f3f5fc;
+}
+.section__button-translate::before {
+  content: "<--";
 }
 .section-output {
   flex-shrink: 2;
   flex-basis: 250px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: hsl(0, 0%, 100%);
   border-radius: 1em;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
@@ -10384,7 +10397,6 @@ form textarea {
   width: 100%;
   min-width: 320px;
   margin: 0 auto;
-  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
   background-color: transparent;
 }
 form .buttons-container {
@@ -10410,9 +10422,17 @@ form #switch-output {
   display: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 655px) {
   .section__button-translate {
     position: relative;
     top: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+  .section__button-translate::before {
+    content: "^";
+  }
+  .section-output img[alt=guy-searching] {
+    display: none;
   }
 }
