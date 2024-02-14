@@ -9,6 +9,7 @@
     "start": "cd core/styles && sass --no-source-map --watch styles.scss styles.css"
   },
   "dependencies": {
-    "bulma": "^0.9.4"
+    "bulma": "^0.9.4",
+    "live-server": "^1.2.2"
   }
 }

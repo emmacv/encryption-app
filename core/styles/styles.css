@@ -10342,10 +10342,26 @@ textarea {
 .section {
   position: relative;
   flex-basis: fit-content;
+  flex-basis: 49%;
+  padding: unset;
 }
 .section__button-translate {
   right: 0;
   top: 50%;
+}
+.section-output {
+  flex-shrink: 2;
+  flex-basis: 250px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1em;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
+}
+.section-output img[alt=guy-searching] {
+  max-width: 100%;
+  height: auto;
+}
+.section-output-text:read-only {
+  color: rgba(0, 0, 0, 0.4862745098);
 }
 
 form {
@@ -10384,19 +10400,6 @@ form .buttons-container button {
 }
 form #switch-output {
   cursor: pointer;
-}
-
-#output {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 1em;
-  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
-}
-#output img[alt=guy-searching] {
-  max-width: 100%;
-  height: auto;
-}
-#output-text:read-only {
-  color: rgba(0, 0, 0, 0.4862745098);
 }
 
 .error {

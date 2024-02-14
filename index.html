@@ -17,21 +17,22 @@
     <h1>Message encryption app</h1>
   </header>
   <main class="is-flex is-justify-content-center is-flex-wrap-wrap p-5">
-    <section id="message" class="section is-flex-grow-1 is-flex-shrink-1">
-      <form onsubmit="encryptOrDecryptMessage(event);" id="message-form">
-        <textarea name="message" id="message" oninput="verifyMessage(event.target.value)" placeholder="Ingrese el texto aqui"></textarea>
-        <div class="is-flex is-justify-content-center buttons-container mt-3">
+    <section class="section is-flex-grow-3 is-flex-shrink-1">
+      <form onsubmit="encryptOrDecryptMessage(event);">
+        <textarea name="message" oninput="verifyMessage(event.target.value)"
+          placeholder="Ingrese el texto aqui"></textarea>
+        <div class="is-flex is-justify-content-center buttons-container">
           <input type="checkbox" name="switch" checked>
           <button id="action-button">crypt</button>
         </div>
       </form>
     </section>
-    <section id="output" class="section is-flex-grow-1 is-flex is-flex-direction-column p-3">
+    <section class="section section-output is-flex-grow-1 is-flex is-flex-direction-column p-3">
       <button class="section__button-translate">
         <span class="mdi mdi-arrow-left-bold"></span>
       </button>
       <div id="no-message">
-        <img alt="guy-searching" src="assets/Muñeco.svg">
+        <img alt="guy-searching" src="assets/Muñeco.svg" class="mx-3">
         <p>Ningún mensaje fue encontrado</p>
         <p>Ingresa el texto que desees encriptar o desencriptar.</sp>
       </div>

@@ -81,10 +81,29 @@ textarea {
 .section {
   position: relative;
   flex-basis: fit-content;
+  flex-basis: 49%;
+  padding: unset;
 
   &__button-translate {
     right: 0;
     top: 50%;
+  }
+
+  &-output {
+    flex-shrink: 2;
+    flex-basis: 250px;
+
+    img[alt="guy-searching"] {
+      max-width: 100%;
+      height: auto;
+    }
+    background-color: $white;
+    border-radius: map-get($border-radius, 2);
+    box-shadow: $box-shadow;
+
+    &-text:read-only {
+      color: #0000007c;
+    }
   }
 }
 
@@ -129,20 +148,6 @@ form {
 
   #switch-output {
     cursor: pointer;
-  }
-}
-
-#output {
-  img[alt="guy-searching"] {
-    max-width: 100%;
-    height: auto;
-  }
-  background-color: $white;
-  border-radius: map-get($border-radius, 2);
-  box-shadow: $box-shadow;
-
-  &-text:read-only {
-    color: #0000007c;
   }
 }
 
