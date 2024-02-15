@@ -10310,7 +10310,7 @@ header {
 }
 
 button {
-  padding: 1em 1.5em;
+  padding: 1.5em;
   outline: none;
   border-radius: 1.5em;
   cursor: pointer;
@@ -10335,8 +10335,6 @@ textarea {
   outline: none;
   border: none;
   border-radius: 0.5em;
-  padding: 1em;
-  color: #0A3871;
 }
 
 .section {
@@ -10373,8 +10371,15 @@ textarea {
   max-width: 100%;
   height: auto;
 }
-.section-output-text:read-only {
-  color: rgba(0, 0, 0, 0.4862745098);
+.section-output__text:read-only {
+  color: hsl(0, 0%, 29%);
+}
+.section__message-output {
+  height: 100%;
+}
+.section__message-output button {
+  width: 100%;
+  margin: 0;
 }
 
 form {
@@ -10398,6 +10403,8 @@ form textarea {
   min-width: 320px;
   margin: 0 auto;
   background-color: transparent;
+  padding: 1em;
+  color: #0A3871;
 }
 form .buttons-container {
   gap: 0.5em;
@@ -10410,7 +10417,30 @@ form .buttons-container button {
   display: inline-block;
   border: none;
 }
-form #switch-output {
+form label {
+  position: relative;
+  width: 80px;
+  padding: 0.25em 0.5em;
+  border-radius: 1em;
+  box-shadow: inset 2px 4px 3px 0px rgba(0, 0, 0, 0.0784313725);
+  border: 1px solid rgba(0, 0, 0, 0.0784313725);
+  box-sizing: border-box;
+}
+form label::before {
+  content: "";
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  background-color: #0A3871;
+  width: 1em;
+  height: 1em;
+  transition: transform 0.25s ease-in-out;
+}
+form label:has(+ input[type=checkbox]:checked)::before {
+  transform: translateX(48px);
+}
+form label + input[type=checkbox] {
+  display: none;
   cursor: pointer;
 }
 
@@ -10418,11 +10448,7 @@ form #switch-output {
   border: solid rgba(202, 48, 48, 0.4392156863) 2px;
 }
 
-.hidden {
-  display: none;
-}
-
-@media (max-width: 655px) {
+@media (max-width: 815px) {
   .section__button-translate {
     position: relative;
     top: 0;
