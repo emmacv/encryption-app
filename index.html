@@ -21,8 +21,8 @@
       <form id="message-form" onsubmit="encryptOrDecryptMessage(event);">
         <textarea name="message" class="is-size-2" oninput="verifyMessage(event.target.value)"
           placeholder="Ingrese el texto aqui"></textarea>
-        <div class="is-flex is-justify-content-center buttons-container is-align-items-center">
-          <label for="switch-button">
+        <div class="is-flex is-justify-content-center buttons-container is-align-items-center is-flex-wrap-wrap">
+          <label for="switch-button" style="display: inline-block;">
           </label>
           <input type="checkbox" id="switch-button" name="switch" checked>
           <button id="action-button" title="¿Qué quieres realizar?">crypt</button>
@@ -30,16 +30,18 @@
       </form>
     </section>
     <section class="section section-output is-flex-grow-1 is-flex is-flex-direction-column p-4">
-      <div class="section__button-translate" onclick="moveOutputToMsgArea();">
-        <span class="mdi"></span>
-      </div>
       <div class="section__no-input">
         <img alt="guy-searching" src="assets/Muñeco.svg" class="mx-3">
         <p class="has-text-weight-bold is-size-4 mb-2">Ningún mensaje fue encontrado</p>
         <p>Ingresa el texto que desees encriptar o desencriptar.</sp>
       </div>
-      <div class="section__message-output is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between is-hidden">
-        <textarea id="output-text" class="is-size-4 section-output__text"  disabled></textarea>
+      <div
+        class="section__message-output is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between is-hidden">
+        <div class="section__button-translate" onclick="moveOutputToMsgArea();" style="display: inline-block;">
+          <span class="mdi"></span>
+        </div>
+
+        <textarea id="output-text" class="is-size-4 section-output__text" disabled></textarea>
         <button type="button" onclick="copyToClipboard();">Copiar al portapapeles</button>
       </div>
     </section>
