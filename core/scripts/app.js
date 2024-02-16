@@ -11,6 +11,9 @@ const REGEX_VALIDATION = /^[a-z\s.0-9]+$/;
 const { "action-button": actionButton, message: messageArea } =
   document.forms["message-form"].elements;
 const outputMessage = document.getElementById("output-text");
+const noMessageArea = document.getElementsByClassName("section__no-input")[0];
+const messageOutputArea = document.getElementsByClassName("section__message-output")[0];
+
 let lexicalError = false;
 
 /**
@@ -36,6 +39,9 @@ const encryptDecryptMessage = (message, shouldEncrypt) => {
   }, message);
 
   outputMessage.value = result;
+
+  noMessageArea.classList.add("is-hidden");
+  messageOutputArea.classList.remove("is-hidden");
 };
 
 const verifyMessage = (message) => {
