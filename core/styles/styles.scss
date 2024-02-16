@@ -184,30 +184,30 @@ form {
       transition: transform 0.25s ease-in-out;
     }
 
-    &:has(+ input[type="checkbox"]:checked)::before {
+    &:has(+ input[type="checkbox"]:not(:checked))::before {
       transform: translateX(48px);
     }
 
-    & + input[type="checkbox"] {
+    &+input[type="checkbox"] {
       display: none;
       cursor: pointer;
 
-      & + #{$button} {
+      &+#{$button} {
         transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
       }
 
-      &:checked + #{$button} {
+      &:checked+#{$button}::before {
+        content: "En";
+      }
+
+      &:not(:checked)+#{$button} {
         background-color: transparent;
         color: $primary;
         outline: 1px $primary solid;
 
         &::before {
-          content: "En";
+          content: "De";
         }
-      }
-
-      &:not(:checked) + #{$button}::before {
-        content: "De";
       }
     }
   }

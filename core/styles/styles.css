@@ -10430,7 +10430,7 @@ form label::before {
   height: 1em;
   transition: transform 0.25s ease-in-out;
 }
-form label:has(+ input[type=checkbox]:checked)::before {
+form label:has(+ input[type=checkbox]:not(:checked))::before {
   transform: translateX(48px);
 }
 form label + input[type=checkbox] {
@@ -10440,13 +10440,13 @@ form label + input[type=checkbox] {
 form label + input[type=checkbox] + button#action-button {
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
-form label + input[type=checkbox]:checked + button#action-button {
+form label + input[type=checkbox]:checked + button#action-button::before {
+  content: "En";
+}
+form label + input[type=checkbox]:not(:checked) + button#action-button {
   background-color: transparent;
   color: #0A3871;
   outline: 1px #0A3871 solid;
-}
-form label + input[type=checkbox]:checked + button#action-button::before {
-  content: "En";
 }
 form label + input[type=checkbox]:not(:checked) + button#action-button::before {
   content: "De";
