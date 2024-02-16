@@ -138,14 +138,6 @@ form {
   min-width: 320px;
   height: 100%;
 
-  :not(input[type="checkbox"]:checked)+#action-button::before {
-    content: "De";
-  }
-
-  input[type="checkbox"]:checked+#action-button::before {
-    content: "En";
-  }
-
   textarea {
     min-height: 500px;
     height: 100%;
@@ -179,6 +171,8 @@ form {
     border: 1px solid #00000014;
     box-sizing: border-box;
 
+    $button: "button#action-button";
+
     &::before {
       content: '';
       position: relative;
@@ -197,6 +191,24 @@ form {
     & + input[type="checkbox"] {
       display: none;
       cursor: pointer;
+
+      & + #{$button} {
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      }
+
+      &:checked + #{$button} {
+        background-color: transparent;
+        color: $primary;
+        outline: 1px $primary solid;
+
+        &::before {
+          content: "En";
+        }
+      }
+
+      &:not(:checked) + #{$button}::before {
+        content: "De";
+      }
     }
   }
 }

@@ -10390,12 +10390,6 @@ form {
   min-width: 320px;
   height: 100%;
 }
-form :not(input[type=checkbox]:checked) + #action-button::before {
-  content: "De";
-}
-form input[type=checkbox]:checked + #action-button::before {
-  content: "En";
-}
 form textarea {
   min-height: 500px;
   height: 100%;
@@ -10442,6 +10436,20 @@ form label:has(+ input[type=checkbox]:checked)::before {
 form label + input[type=checkbox] {
   display: none;
   cursor: pointer;
+}
+form label + input[type=checkbox] + button#action-button {
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+form label + input[type=checkbox]:checked + button#action-button {
+  background-color: transparent;
+  color: #0A3871;
+  outline: 1px #0A3871 solid;
+}
+form label + input[type=checkbox]:checked + button#action-button::before {
+  content: "En";
+}
+form label + input[type=checkbox]:not(:checked) + button#action-button::before {
+  content: "De";
 }
 
 .error {
