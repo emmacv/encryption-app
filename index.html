@@ -16,11 +16,18 @@
     <img src="public/logo.png" alt="Logo">
     <h1>Message encryption app</h1>
   </header>
+  <div class="tooltip">
+    <span>Texto copiado</span>
+  </div>
   <main class="is-flex is-justify-content-center is-flex-wrap-wrap p-5">
     <section class="section is-flex-grow-3 is-flex-shrink-1">
       <form id="message-form" onsubmit="encryptOrDecryptMessage(event);">
         <textarea name="message" class="is-size-2" oninput="verifyMessage(event.target.value)"
           placeholder="Ingrese el texto aqui"></textarea>
+        <p class="is-size-7">
+          <span class="mdi mdi-alert-circle"></span>
+          Sólo letras minúsculas y sin acentos
+        </p>
         <div class="is-flex is-justify-content-center buttons-container is-align-items-center is-flex-wrap-wrap">
           <label for="switch-button" style="display: inline-block;">
           </label>

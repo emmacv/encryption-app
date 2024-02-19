@@ -64,8 +64,23 @@ const verifyMessage = (message) => {
 
 const copyToClipboard = () => {
   navigator.clipboard.writeText(outputMessage.value);
+
+  const tooltip = document.createElement("div");
+
+  tooltip.classList.add("tooltip");
+  tooltip.innerHTML= `<span class="tooltip">Copied!</span>`;
+
+  document.body.appendChild(tooltip);
+
+  setTimeout(() => {
+    tooltip.remove();
+  }, 1000);
 };
 
 const moveOutputToMsgArea = () => {
   messageArea.value = outputMessage.value;
 };
+
+window.addEventListener("load", () => {
+  if (!messageArea.value.length) actionButton.disabled = true;
+});

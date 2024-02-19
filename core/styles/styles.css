@@ -64,7 +64,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -94,7 +93,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -307,7 +305,9 @@ html {
   overflow-x: hidden;
   overflow-y: scroll;
   text-rendering: optimizeLegibility;
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
 }
 
 article,
@@ -7604,6 +7604,7 @@ label.panel-block:hover {
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
+  min-height: -moz-min-content;
   min-height: min-content;
 }
 .tile.is-ancestor {
@@ -10293,6 +10294,13 @@ body {
   height: 100%;
 }
 
+textarea::-moz-placeholder {
+  color: #0A3871;
+  opacity: 1;
+  border: none;
+  font-family: "Inter";
+}
+
 textarea::placeholder {
   color: #0A3871;
   opacity: 1;
@@ -10371,7 +10379,13 @@ textarea {
   max-width: 100%;
   height: auto;
 }
-.section-output__text:read-only {
+.section-output__text {
+  flex-basis: 500px;
+}
+.section-output__text :-moz-read-only {
+  color: hsl(0, 0%, 29%);
+}
+.section-output__text :read-only {
   color: hsl(0, 0%, 29%);
 }
 .section__message-output {
@@ -10456,7 +10470,21 @@ form label + input[type=checkbox]:not(:checked) + button#action-button::before {
   border: solid rgba(202, 48, 48, 0.4392156863) 2px;
 }
 
-@media (max-width: 815px) {
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: rotate(-50%);
+  background-color: rgba(202, 48, 48, 0.4392156863);
+  color: #f3f5fc;
+  padding: 0.5em;
+  border-radius: 1em;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
+  z-index: 1;
+  display: none;
+}
+
+@media (max-width: 740px) {
   .section__button-translate {
     position: relative;
     top: 0;
@@ -10469,4 +10497,4 @@ form label + input[type=checkbox]:not(:checked) + button#action-button::before {
   .section-output img[alt=guy-searching] {
     display: none;
   }
-}
+}/*# sourceMappingURL=styles.css.map */

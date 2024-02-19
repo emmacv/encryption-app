@@ -115,8 +115,12 @@ textarea {
     border-radius: map-get($border-radius, 2);
     box-shadow: $box-shadow;
 
-    &__text:read-only {
-      color: $grey-dark;
+    &__text {
+      flex-basis: 500px;
+
+      :read-only {
+        color: $grey-dark;
+      }
     }
   }
 
@@ -217,7 +221,21 @@ form {
   border: solid $danger 2px;
 }
 
-@media (max-width: 815px) {
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: rotate(-50%);
+  background-color: $danger;
+  color: $secondary;
+  padding: 0.5em;
+  border-radius: map-get($border-radius, 2);
+  box-shadow: $box-shadow;
+  z-index: 1;
+  display: none;
+}
+
+@media (max-width: 740px) {
   .section {
     &__button-translate {
       position: relative;
