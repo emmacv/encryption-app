@@ -16,9 +16,6 @@
     <img src="public/logo.png" alt="Logo">
     <h1>Message encryption app</h1>
   </header>
-  <div class="tooltip">
-    <span>Texto copiado</span>
-  </div>
   <main class="is-flex is-justify-content-center is-flex-wrap-wrap p-5">
     <section class="section is-flex-grow-3 is-flex-shrink-1">
       <form id="message-form" onsubmit="encryptOrDecryptMessage(event);">
@@ -47,7 +44,6 @@
         <div class="section__button-translate" onclick="moveOutputToMsgArea();" style="display: inline-block;">
           <span class="mdi"></span>
         </div>
-
         <textarea id="output-text" class="is-size-4 is-flex-grow-1 section-output__text" disabled></textarea>
         <button type="button" onclick="copyToClipboard();">Copiar al portapapeles</button>
       </div>

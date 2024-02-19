@@ -10472,16 +10472,17 @@ form label + input[type=checkbox]:not(:checked) + button#action-button::before {
 
 .tooltip {
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: -6em;
+  right: 0;
+  margin: 2em;
   transform: rotate(-50%);
-  background-color: rgba(202, 48, 48, 0.4392156863);
-  color: #f3f5fc;
+  background-color: rgba(118, 111, 111, 0.4);
   padding: 0.5em;
-  border-radius: 1em;
+  border-radius: 0.5em;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.0784313725);
   z-index: 1;
-  display: none;
+  opacity: 0;
+  animation: fade-in-out 4s ease-in-out forwards;
 }
 
 @media (max-width: 740px) {
@@ -10496,5 +10497,15 @@ form label + input[type=checkbox]:not(:checked) + button#action-button::before {
   }
   .section-output img[alt=guy-searching] {
     display: none;
+  }
+}
+@keyframes fade-in-out {
+  20% {
+    transform: translateY(200%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300%);
+    opacity: 0;
   }
 }/*# sourceMappingURL=styles.css.map */

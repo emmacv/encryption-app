@@ -68,13 +68,17 @@ const copyToClipboard = () => {
   const tooltip = document.createElement("div");
 
   tooltip.classList.add("tooltip");
-  tooltip.innerHTML= `<span class="tooltip">Copied!</span>`;
+  tooltip.classList.add("tooltip");
+  let text = "¡Texto copiado!"
+  tooltip.innerHTML= /*html*/`
+    <span class="tooltip">${text}</span>
+  `;
 
   document.body.appendChild(tooltip);
 
   setTimeout(() => {
     tooltip.remove();
-  }, 1000);
+  }, 4000);
 };
 
 const moveOutputToMsgArea = () => {

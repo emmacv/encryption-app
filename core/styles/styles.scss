@@ -223,16 +223,17 @@ form {
 
 .tooltip {
   position: absolute;
-  top: 100%;
-  left: 50%;
+  top: -6em;
+  right: 0;
+  margin: 2em;
   transform: rotate(-50%);
-  background-color: $danger;
-  color: $secondary;
+  background-color: rgba(118, 111, 111, 0.4);
   padding: 0.5em;
-  border-radius: map-get($border-radius, 2);
+  border-radius: map-get($border-radius, 1);
   box-shadow: $box-shadow;
   z-index: 1;
-  display: none;
+  opacity: 0;
+  animation: fade-in-out 4s ease-in-out forwards;
 }
 
 @media (max-width: 740px) {
@@ -255,3 +256,5 @@ form {
     }
   }
 }
+
+@import './animation';
